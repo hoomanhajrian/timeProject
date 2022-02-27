@@ -6,8 +6,9 @@ import { RootTabScreenProps } from '../types';
 import { Card,CardHeader } from '@mui/material';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-const [dataSource, changeDataSource] = useState([{id:1,title:"title"},{id:2,title:"title2"}]);
-const [loading, changeLoading]= useState([true]);
+const [dataSource, changeDataSource] = useState([{id:1,title:"title",data:""},{id:2,title:"title2",data:""}]);
+const [loading, changeLoading]= useState(false);
+
 
   return (
   <SafeAreaView>
@@ -23,6 +24,8 @@ const [loading, changeLoading]= useState([true]);
         />
       </Card>
     )}
+//Setting the number of column
+  numColumns={2}
     />}
   </SafeAreaView>
   );
@@ -30,9 +33,8 @@ const [loading, changeLoading]= useState([true]);
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection:'column',
-
+    marginRight:'auto',
+    marginLeft:'auto',
   },
   title: {
     fontSize: 20,
