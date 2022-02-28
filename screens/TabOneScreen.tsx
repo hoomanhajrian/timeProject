@@ -65,16 +65,15 @@ const convertMonth = (month:number)=>{
   }
 }
 
-
-const interval = setInterval(()=>{
-  changeDataSource(...dataSource,
-  [{id:1,title:"New Time",data:`${Math.floor(currentBiOra)}:${Math.floor(currentBiMino)}:${Math.floor(currentSeko)}`},
+const newData = [
+  {id:1,title:"New Time",data:`${Math.floor(currentBiOra)}:${Math.floor(currentBiMino)}:${Math.floor(currentSeko)}`},
   {id:2,title:"Dato",data:`${dato}${dato1}`},
   {id:3,title:"Old Time",data:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`},
-  {id:4,title:"Date",data:`${date.getDate()}/${convertMonth(date.getMonth())}/${date.getFullYear()}`}]);
+  {id:4,title:"Date",data:`${date.getDate()}/${convertMonth(date.getMonth())}/${date.getFullYear()}`}];
+
+const interval = setInterval(()=>{
+  changeDataSource(newData);
 },1000);
-
-
 
   return (
   <View>
